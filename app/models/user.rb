@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_secure_token :authentication_token
   validates :username, presence: true,
                     uniqueness: true,
                     length: { maximum: 20 },
