@@ -18,6 +18,9 @@ import React from "react";
 const App = () => {
 	return (
 		<div>
+			<h1 className="text-3xl leading-5 text-center ">
+				You have no tasks assigned 😔
+			</h1>
 			<h1>This is App.jsx</h1>
 			<h1>This is App.jsx</h1>
 			<h1>This is App.jsx</h1>
