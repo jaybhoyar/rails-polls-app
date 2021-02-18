@@ -5,7 +5,10 @@
 import "../stylesheets/application.scss";
 import Rails from "@rails/ujs";
 import * as ActiveStorage from "@rails/activestorage";
+var componentRequireContext = require.context("src", true);
+var ReactRailsUJS = require("react_ujs");
 import "channels";
 
 Rails.start();
 ActiveStorage.start();
+ReactRailsUJS.useContext(componentRequireContext);
