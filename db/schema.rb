@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_19_073959) do
+ActiveRecord::Schema.define(version: 2021_02_19_142128) do
+
+  create_table "options", force: :cascade do |t|
+    t.string "value"
+    t.integer "poll_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["poll_id"], name: "index_options_on_poll_id"
+  end
 
   create_table "polls", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -27,5 +35,6 @@ ActiveRecord::Schema.define(version: 2021_02_19_073959) do
     t.string "authentication_token"
   end
 
+  add_foreign_key "options", "polls"
   add_foreign_key "polls", "users", on_delete: :cascade
 end

@@ -16,13 +16,12 @@ class PollsController < ApplicationController
     else
       redirect_to login_path
     end
-
   end
 
   private
 
   def poll_params
-    params.require(:poll).permit(:question, :user_id)
+    params.require(:poll).permit(:question, :user_id, options_attributes: [:value])
   end
 
 end

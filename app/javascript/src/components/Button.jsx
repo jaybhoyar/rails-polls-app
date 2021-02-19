@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Button = ({ type = "button", buttonText, onClick, loading }) => {
+const Button = ({ type = "button", buttonText, onClick }) => {
 	return (
 		<div className="mt-6">
 			<button
@@ -12,7 +12,7 @@ const Button = ({ type = "button", buttonText, onClick, loading }) => {
          ease-in-out bg-bb-purple border border-transparent rounded-md 
          group hover:bg-opacity-90 focus:outline-none"
 			>
-				{loading ? "Loading..." : buttonText}
+				{buttonText}
 			</button>
 		</div>
 	);
@@ -21,7 +21,6 @@ const Button = ({ type = "button", buttonText, onClick, loading }) => {
 Button.propTypes = {
 	type: PropTypes.string,
 	buttonText: PropTypes.string,
-	loading: PropTypes.bool,
 	onClick: PropTypes.func,
 };
 export default Button;
