@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :polls, dependent: :destroy
+  
   has_secure_password
   has_secure_token :authentication_token
   validates :username, presence: true,
