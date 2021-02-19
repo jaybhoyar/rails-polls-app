@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
         notice: 'Incorrect credentials, try again.'
       }
     end
-   end
+  end
+
+  def destroy
+    @current_user = nil
+  end
    
   private
 

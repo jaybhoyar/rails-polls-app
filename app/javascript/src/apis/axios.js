@@ -20,3 +20,8 @@ export const setAuthHeaders = (setLoading = () => null) => {
 	}
 	setLoading(false);
 };
+
+export const resetAuthTokens = () => {
+	delete axios.defaults.headers["X-Auth-Username"];
+	delete axios.defaults.headers["X-Auth-Token"];
+};
