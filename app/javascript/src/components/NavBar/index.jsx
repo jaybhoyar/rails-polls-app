@@ -43,7 +43,7 @@ const NavBar = () => {
 							</Link>
 							{/* <NavItem name="Create" path="/tasks/create" />  */}
 							<Link
-								to="/polls/new"
+								to="/"
 								className="inline-flex items-center px-1 pt-1 mr-3
                           font-semibold text-sm leading-5
                           text-indigo-500 hover:text-indigo-500"
@@ -53,11 +53,24 @@ const NavBar = () => {
 										className={`${iconClass} text-bb-purple`}
 									></i>
 								)} */}
-								CreatePoll
+								Dashboard
 							</Link>
 						</div>
 					</div>
 					<div className="flex items-center justify-end">
+						<Link
+							to="/create"
+							className="inline-flex items-center px-1 pt-1 mr-3
+                          font-semibold text-sm leading-5
+                          text-indigo-500 hover:text-indigo-500"
+						>
+							{/* {iconClass && (
+									<i
+										className={`${iconClass} text-bb-purple`}
+									></i>
+								)} */}
+							CreatePoll
+						</Link>
 						<a
 							onClick={handleLogout}
 							className="inline-flex items-center px-1 pt-1 text-sm

@@ -5,6 +5,9 @@ import Dashboard from "components/Dashboard";
 import Login from "components/Authentication/Login";
 import Signup from "components/Authentication/Signup";
 import CreatePoll from "components/Poll/CreatePoll";
+import ShowPoll from "components/Poll/ShowPoll";
+import NavBar from "components/NavBar";
+
 import { setAuthHeaders } from "apis/axios";
 
 const App = () => {
@@ -14,11 +17,13 @@ const App = () => {
 
 	return (
 		<Router>
+			<NavBar />
 			<Switch>
 				<Route exact path="/" component={Dashboard} />
 				<Route exact path="/signup" component={Signup} />
 				<Route exact path="/login" component={Login} />
-				<Route exact path="/polls/new" component={CreatePoll} />
+				<Route exact path="/create" component={CreatePoll} />
+				<Route exact path="/polls/:id/show" component={ShowPoll} />
 
 				{/* <PrivateRoute
 					path="/"

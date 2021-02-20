@@ -11,7 +11,6 @@ export const setAuthHeaders = () => {
 	const token = localStorage.getItem("authToken");
 	const username = localStorage.getItem("authUsername");
 
-	console.log(token, username);
 	if (token && username) {
 		console.log(token, username);
 		axios.defaults.headers["X-Auth-Username"] = username;

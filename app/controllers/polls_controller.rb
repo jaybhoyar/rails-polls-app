@@ -17,6 +17,12 @@ class PollsController < ApplicationController
     end
   end
 
+  def show
+    poll = Poll.find(params[:id])
+    options = poll.options
+    render status: :ok, json: {poll: poll, options: options}
+  end
+
   private
 
   def poll_params
