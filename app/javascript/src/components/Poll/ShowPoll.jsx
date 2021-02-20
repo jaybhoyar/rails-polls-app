@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
 import pollsApi from "apis/polls";
+// import votesApi from "apis/votes";
 
 const ShowPoll = () => {
 	const { id } = useParams();
@@ -11,7 +12,6 @@ const ShowPoll = () => {
 	const fetchPollDetails = async () => {
 		try {
 			const response = await pollsApi.show(id);
-
 			setPollQuestion(response.data.poll.question);
 			setPollOptions(response.data.options);
 		} catch (error) {

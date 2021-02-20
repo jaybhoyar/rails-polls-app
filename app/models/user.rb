@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :polls, dependent: :destroy
+  has_many :votes, dependent: :destroy
   
   has_secure_token :authentication_token
   has_secure_password
