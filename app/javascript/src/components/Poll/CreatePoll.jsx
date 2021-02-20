@@ -57,7 +57,6 @@ const CreatePoll = ({ history }) => {
 	return (
 		<div>
 			<NavBar />
-			<h1>Poll Form </h1>
 			<PollForm
 				question={question}
 				option1={option1}
