@@ -6,7 +6,6 @@ import ListPolls from "components/Poll/ListPolls";
 const Dashboard = () => {
 	return (
 		<div>
-			<NavBar />
 			<ListPolls />
 		</div>
 	);
