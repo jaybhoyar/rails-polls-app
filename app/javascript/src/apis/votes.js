@@ -1,11 +1,9 @@
 import axios from "axios";
 
-const create = (payload) => axios.post("/polls", payload);
+const create = (payload) => axios.post("/votes", payload);
 
-const pollsApi = {
-	list,
-	show,
+const votesApi = {
 	create,
 };
 
-export default pollsApi;
+export default votesApi;
