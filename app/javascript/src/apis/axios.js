@@ -1,10 +1,6 @@
 import axios from "axios";
-axios.defaults.headers = {
-	Accept: "applicaion/json",
-	"Content-Type": "application/json",
-};
 
-export const setAuthHeaders = (setLoading = () => null) => {
+export const setAuthHeaders = () => {
 	axios.defaults.headers = {
 		Accept: "applicaion/json",
 		"Content-Type": "application/json",
@@ -14,11 +10,13 @@ export const setAuthHeaders = (setLoading = () => null) => {
 	};
 	const token = localStorage.getItem("authToken");
 	const username = localStorage.getItem("authUsername");
+
+	console.log(token, username);
 	if (token && username) {
+		console.log(token, username);
 		axios.defaults.headers["X-Auth-Username"] = username;
 		axios.defaults.headers["X-Auth-Token"] = token;
 	}
-	setLoading(false);
 };
 
 export const resetAuthTokens = () => {
