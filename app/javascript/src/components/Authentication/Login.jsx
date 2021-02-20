@@ -27,7 +27,6 @@ const Login = () => {
 			window.location.href = "/";
 		} catch (error) {
 			console.log(error);
-			setLoading(false);
 		}
 	};
 
@@ -35,7 +34,6 @@ const Login = () => {
 		<LoginForm
 			setUsername={setUsername}
 			setPassword={setPassword}
-			loading={loading}
 			handleSubmit={handleSubmit}
 		/>
 	);

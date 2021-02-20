@@ -16,7 +16,7 @@ const NavBar = () => {
 				authUsername: null,
 			});
 			resetAuthTokens();
-			window.location.href = "/";
+			window.location.href = "/login";
 		} catch (error) {
 			console.log(error);
 		}
@@ -29,7 +29,7 @@ const NavBar = () => {
 						<div className="hidden md:flex">
 							{/* <NavItem name="Dashboard" path="/dashboard" /> */}
 							<Link
-								to="/"
+								to="/login"
 								className="inline-flex items-center px-1 pt-1 mr-3
                           font-semibold text-sm leading-5
                           text-indigo-500 hover:text-indigo-500"
@@ -39,7 +39,7 @@ const NavBar = () => {
 										className={`${iconClass} text-bb-purple`}
 									></i>
 								)} */}
-								Dashboard
+								Login
 							</Link>
 							{/* <NavItem name="Create" path="/tasks/create" />  */}
 							<Link

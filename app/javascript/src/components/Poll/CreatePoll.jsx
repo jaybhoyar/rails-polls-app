@@ -4,7 +4,7 @@ import PollForm from "./Form/PollForm";
 import NavBar from "components/NavBar";
 
 // import PageLoader from "components/PageLoader";
-// import pollsApi from "apis/polls";
+import pollsApi from "apis/polls";
 // import usersApi from "apis/users";
 
 const CreatePoll = ({ history }) => {
@@ -18,7 +18,15 @@ const CreatePoll = ({ history }) => {
 		event.preventDefault();
 		try {
 			const res = await pollsApi.create({
-				poll: { question, option1, option2, option3, option4 },
+				poll: {
+					question,
+					options_attributes: [
+						{ value: option1 },
+						{ value: option2 },
+						{ value: option3 },
+						{ value: option4 },
+					],
+				},
 			});
 			// setLoading(false);
 			console.log("POlls", res.data);

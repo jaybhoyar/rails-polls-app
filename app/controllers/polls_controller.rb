@@ -1,27 +1,26 @@
 class PollsController < ApplicationController
-  
+  before_action :authenticate_user_using_x_auth_token, only: :create 
+
   def index
-    @polls = Poll.all.order("created_at DESC")
+    polls = Poll.all
+    render status: :ok, json: {polls: polls}
   end
 
   def create
-    if logged_in?
-      @poll[:user_id] = current_user.id
-      @poll = Poll.new(poll_params)
-      if @poll.save
-        render status: :ok, json: {notice: 'Poll created successfully'}
-      else
-        render status: :unprocessable_entity, json: {errors: @poll.errors.full_messages}
-      end
+    # @poll = Poll.new(poll_params.merge(user_id: @current_user.id))
+    @poll = Poll.new(poll_params)
+    @poll.user_id = current_user.id
+    if @poll.save
+      render status: :ok, json: {notice: "Poll created successfully!", poll: @poll}
     else
-      redirect_to login_path
+      render status: :unprocessable_entity, json: {errors: poll.errors.full_messages.to_sentence}
     end
   end
 
   private
 
   def poll_params
-    params.require(:poll).permit(:question, :user_id, options_attributes: [:value])
+    params.require(:poll).permit(:question, options_attributes: [:value])
   end
 
 end

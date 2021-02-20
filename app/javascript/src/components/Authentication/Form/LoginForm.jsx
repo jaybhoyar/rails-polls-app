@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Input from "components/Input";
 import Button from "components/Button";
 
-const LoginForm = ({ handleSubmit, setUsername, setPassword, loading }) => {
+const LoginForm = ({ handleSubmit, setUsername, setPassword }) => {
 	return (
 		<div
 			className="flex items-center justify-center min-h-screen
@@ -41,11 +41,7 @@ const LoginForm = ({ handleSubmit, setUsername, setPassword, loading }) => {
 						placeholder="********"
 						onChange={(e) => setPassword(e.target.value)}
 					/>
-					<Button
-						type="submit"
-						buttonText="Sign In"
-						loading={loading}
-					/>
+					<Button type="submit" buttonText="Sign In" />
 				</form>
 			</div>
 		</div>
