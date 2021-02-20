@@ -6,14 +6,10 @@ const show = (id) => axios.get(`/polls/${id}`);
 
 const create = (payload) => axios.post("/polls", payload);
 
-// const destroy = (id) => axios.delete(`/tasks/${id}`);
-
 const pollsApi = {
 	list,
 	show,
 	create,
-	// update,
-	// destroy,
 };
 
 export default pollsApi;

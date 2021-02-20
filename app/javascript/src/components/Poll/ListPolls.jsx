@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import pollsApi from "apis/polls";
 
 // import Table from "./Table";
@@ -33,13 +34,15 @@ const ListPolls = () => {
 					New Poll
 				</h2>
 				<div>
-					{polls.map((poll) => (
-						<p
-							className="
+					{polls.map((poll, index) => (
+						<Link key={index} to={`/polls/${poll.id}/show`}>
+							<p
+								className="
 							shadow my-4 px-6 py-4 text-m font-medium leading-5 whitespace-no-wrap text-bb-purple"
-						>
-							{poll.question}
-						</p>
+							>
+								{poll.question}
+							</p>
+						</Link>
 					))}
 				</div>
 			</div>
