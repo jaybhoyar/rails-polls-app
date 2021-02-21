@@ -25,6 +25,7 @@ const ShowPoll = () => {
 				vote: { poll_id: id, option_id: optionId },
 			});
 			console.log(res.data);
+			fetchPollDetails();
 		} catch (error) {
 			console.log(error);
 		}
@@ -54,6 +55,9 @@ const ShowPoll = () => {
 								<dl className="grid sm:block lg:grid xl:block grid-cols-2 grid-rows-2 items-center">
 									<dd className="group-hover:text-white leading-6 font-medium text-black">
 										{option.value}
+									</dd>
+									<dd className="group-hover:text-white text-sm leading-6 font-light text-gray-600">
+										{option.vote_count}
 									</dd>
 								</dl>
 							</a>
