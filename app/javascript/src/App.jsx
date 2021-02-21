@@ -24,7 +24,7 @@ const App = () => {
 
 	return (
 		<Router>
-			<NavBar />
+			<NavBar isUserLoggedIn={isUserLoggedIn} />
 			<Switch>
 				<Route exact path="/" component={Dashboard} />
 				<Route exact path="/signup" component={Signup} />
