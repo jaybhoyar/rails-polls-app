@@ -19,8 +19,8 @@ const Login = () => {
 			console.log(response.data);
 			setToLocalStorage({
 				authToken: response.data.auth_token,
-				username,
-				userId: response.data.userId,
+				authUsername: username,
+				authUserId: response.data.userId,
 			});
 			setAuthHeaders();
 			setLoading(false);

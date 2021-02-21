@@ -12,8 +12,8 @@ const NavBar = () => {
 			await authApi.logout();
 			setToLocalStorage({
 				authToken: null,
-				authUserId: null,
 				authUsername: null,
+				authUserId: null,
 			});
 			resetAuthTokens();
 			window.location.href = "/login";
