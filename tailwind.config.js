@@ -11,6 +11,8 @@ module.exports = {
 				"poll-green": "#3fcc73",
 				"poll-blue": "#3a8ff2",
 				"poll-light-orange": "#f29266",
+				"poll-error-red": "#db0015",
+				"poll-error-bg": "#f8d7da",
 				"bb-purple": "#5469D4",
 				"bb-env": "#F1F5F9",
 				"bb-border": "#E4E4E7",

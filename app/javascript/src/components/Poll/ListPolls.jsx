@@ -34,15 +34,16 @@ const ListPolls = () => {
 					Polls
 				</h2>
 				<div className="flex px-4 flex-wrap inline-flex	">
-					{polls.map((poll, index) => (
-						<Link
-							key={index}
-							to={`/polls/${poll.id}/show`}
-							className="rounded-md shadow-lg my-6 mx-4 px-6 py-6 text-lg font-bold text-gray-600 leading-5 bg-white"
-						>
-							{poll.question}
-						</Link>
-					))}
+					{polls &&
+						polls.map((poll, index) => (
+							<Link
+								key={index}
+								to={`/polls/${poll.id}/show`}
+								className="rounded-md shadow-lg my-6 mx-4 px-6 py-6 text-lg font-bold text-gray-600 leading-5 bg-white"
+							>
+								{poll.question}
+							</Link>
+						))}
 				</div>
 			</div>
 		</div>

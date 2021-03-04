@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
+import Error from "components/Error";
 import pollsApi from "apis/polls";
 import votesApi from "apis/votes";
 
@@ -8,6 +9,7 @@ const ShowPoll = () => {
 	const { id } = useParams();
 	const [pollQuestion, setPollQuestion] = useState("");
 	const [pollOptions, setPollOptions] = useState([]);
+	const [errorMessage, setErrorMessage] = useState(null);
 
 	const fetchPollDetails = async () => {
 		try {
@@ -21,13 +23,13 @@ const ShowPoll = () => {
 
 	const handleVote = async (optionId) => {
 		try {
-			const res = await votesApi.create({
+			await votesApi.create({
 				vote: { poll_id: id, option_id: optionId },
 			});
-			console.log(res.data);
+
 			fetchPollDetails();
 		} catch (error) {
-			console.log(error);
+			setErrorMessage(error.response.data.notice);
 		}
 	};
 
@@ -36,12 +38,18 @@ const ShowPoll = () => {
 	}, []);
 
 	return (
-		<div className="flex items-center justify-around pl-28 py-10">
+		<div className="w-full flex items-center justify-around pl-28 py-10">
 			<div className="w-1/2">
 				<h1 className="pb-3 mt-8 mb-6 text-3xl leading-5 font-bold text-left tracking-wide">
 					{pollQuestion}
 				</h1>
-				<ul className="">
+				{errorMessage ? (
+					<Error
+						errorMessage={errorMessage}
+						setErrorMessage={setErrorMessage}
+					/>
+				) : null}
+				<ul>
 					{pollOptions.map((option, index) => (
 						<li
 							className="cursor-pointer w-2/3 bg-white border-2 border-transparent hover:border-poll-green shadow-lg block rounded-md py-6 px-6 mb-6"

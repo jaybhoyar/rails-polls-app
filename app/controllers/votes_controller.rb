@@ -14,7 +14,7 @@ class VotesController < ApplicationController
         render status: :unprocessable_entity, json: { errors: vote.errors.full_messages }
       end
     else
-      render status: :ok, json: { notice: "You have already voted" }
+      render status: :bad_request, json: { notice: "You have already voted" }
     end
     
   end
