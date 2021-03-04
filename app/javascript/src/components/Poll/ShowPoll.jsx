@@ -36,31 +36,26 @@ const ShowPoll = () => {
 	}, []);
 
 	return (
-		<div
-			className="flex items-center justify-center
-    px-4 py-6 lg:px-8 bg-gray-50 sm:px-6"
-		>
-			<div className="w-full max-w-md">
-				<h1 className="pb-3 mt-5 mb-3 text-lg leading-5 font-bold text-center">
+		<div className="flex items-center justify-around pl-28 py-10">
+			<div className="w-1/2">
+				<h1 className="pb-3 mt-8 mb-6 text-3xl leading-5 font-bold text-left tracking-wide">
 					{pollQuestion}
 				</h1>
-				<ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
+				<ul className="">
 					{pollOptions.map((option, index) => (
 						<li
-							className="cursor-pointer"
+							className="cursor-pointer w-2/3 bg-white border-2 border-transparent hover:border-poll-green shadow-lg block rounded-md py-6 px-6 mb-6"
 							key={index}
 							onClick={() => handleVote(option.id)}
 						>
-							<a className="hover:bg-light-blue-500 hover:border-transparent hover:shadow-lg group block rounded-lg p-4 border border-gray-200">
-								<dl className="grid sm:block lg:grid xl:block grid-cols-2 grid-rows-2 items-center">
-									<dd className="group-hover:text-white leading-6 font-medium text-black">
-										{option.value}
-									</dd>
-									<dd className="group-hover:text-white text-sm leading-6 font-light text-gray-600">
-										{option.vote_count}
-									</dd>
-								</dl>
-							</a>
+							<div className="pl-3 flex items-center justify-between">
+								<span className="leading-6 font-medium text-xl">
+									{option.value}
+								</span>
+								<span className="leading-6 font-medium text-lg text-gray-500">
+									{option.vote_count}
+								</span>
+							</div>
 						</li>
 					))}
 				</ul>
