@@ -6,10 +6,7 @@ import Button from "components/Button";
 
 const LoginForm = ({ handleSubmit, setUsername, setPassword }) => {
 	return (
-		<div
-			className="flex items-center justify-center min-h-screen
-    px-4 py-12 lg:px-8 bg-gray-50 sm:px-6"
-		>
+		<div className="flex pt-12 justify-center min-h-screen px-8">
 			<div className="w-full max-w-md">
 				<h2
 					className="mt-6 text-3xl font-extrabold leading-9
@@ -21,7 +18,7 @@ const LoginForm = ({ handleSubmit, setUsername, setPassword }) => {
 					Or
 					<Link
 						to="/signup"
-						className="ml-1 mt-2 text-bb-purple
+						className="ml-1 mt-2 text-poll-blue
             transition duration-150 ease-in-out focus:outline-none
             focus:underline"
 					>
