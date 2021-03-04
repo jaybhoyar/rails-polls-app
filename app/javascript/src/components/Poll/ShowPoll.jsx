@@ -26,7 +26,6 @@ const ShowPoll = () => {
 			await votesApi.create({
 				vote: { poll_id: id, option_id: optionId },
 			});
-
 			fetchPollDetails();
 		} catch (error) {
 			setErrorMessage(error.response.data.notice);

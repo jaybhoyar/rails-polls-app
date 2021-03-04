@@ -7,10 +7,11 @@ const Input = ({
 	value,
 	onChange,
 	placeholder,
+	styles = "",
 	required = true,
 }) => {
 	return (
-		<div className="mt-4">
+		<div className={`mt-4 ${styles}`}>
 			{label && (
 				<label
 					className="block text-xl font-medium

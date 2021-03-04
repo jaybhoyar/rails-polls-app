@@ -8,7 +8,7 @@ const Button = ({ type = "button", buttonText, onClick }) => {
 				onClick={onClick}
 				className="flex justify-center w-full px-4 py-3
          text-xl font-medium leading-5 text-white transition duration-150
-         ease-in-out bg-poll-green border border-transparent rounded-md"
+         ease-in-out bg-poll-green border border-transparent rounded-md "
 			>
 				{buttonText}
 			</button>
