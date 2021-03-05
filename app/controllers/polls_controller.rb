@@ -7,13 +7,12 @@ class PollsController < ApplicationController
   end
 
   def create
-    # @poll = Poll.new(poll_params.merge(user_id: @current_user.id))
     @poll = Poll.new(poll_params)
     @poll.user_id = current_user.id
     if @poll.save
       render status: :ok, json: {notice: "Poll created successfully!", poll: @poll}
     else
-      render status: :unprocessable_entity, json: {errors: poll.errors.full_messages.to_sentence}
+      render status: :unprocessable_entity, json: {errors: @poll.errors.full_messages.to_sentence}
     end
   end
 

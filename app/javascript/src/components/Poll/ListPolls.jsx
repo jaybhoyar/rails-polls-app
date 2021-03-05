@@ -10,7 +10,6 @@ const ListPolls = () => {
 	const fetchPolls = async () => {
 		try {
 			const response = await pollsApi.list();
-			console.log(response.data.polls);
 			setPolls(response.data.polls);
 		} catch (error) {
 			console.log(error);
@@ -24,26 +23,26 @@ const ListPolls = () => {
 	return (
 		<div
 			className="flex items-center justify-center
-    px-4 py-6 lg:px-8 bg-gray-50 sm:px-6"
+    px-4 py-6 lg:px-8 sm:px-6"
 		>
-			<div className="w-full max-w-md">
+			<div className="w-full">
 				<h2
-					className="my-6 text-3xl font-extrabold leading-9
+					className="my-3 text-5xl leading-9
          text-center text-bb-gray-700"
 				>
-					New Poll
+					Polls
 				</h2>
-				<div>
-					{polls.map((poll, index) => (
-						<Link key={index} to={`/polls/${poll.id}/show`}>
-							<p
-								className="
-							shadow my-4 px-6 py-4 text-m font-medium leading-5 whitespace-no-wrap text-bb-purple"
+				<div className="flex px-4 flex-wrap inline-flex	">
+					{polls &&
+						polls.map((poll, index) => (
+							<Link
+								key={index}
+								to={`/polls/${poll.id}/show`}
+								className="rounded-md shadow-lg my-6 mx-4 px-6 py-6 text-lg font-bold text-gray-600 leading-5 bg-white"
 							>
 								{poll.question}
-							</p>
-						</Link>
-					))}
+							</Link>
+						))}
 				</div>
 			</div>
 		</div>

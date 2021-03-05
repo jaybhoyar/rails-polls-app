@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import PollForm from "./Form/PollForm";
-import NavBar from "components/NavBar";
-
-// import PageLoader from "components/PageLoader";
 import pollsApi from "apis/polls";
-// import usersApi from "apis/users";
 
 const CreatePoll = ({ history }) => {
 	const [question, setQuestion] = useState("");
@@ -28,31 +24,11 @@ const CreatePoll = ({ history }) => {
 					],
 				},
 			});
-			// setLoading(false);
-			console.log("POlls", res.data);
 			history.push("/");
 		} catch (error) {
 			console.log(error);
-			// setLoading(false);
 		}
 	};
-
-	// const fetchUserDetails = async () => {
-	// 	try {
-	// 		const response = await usersApi.list();
-
-	// 		setUsers(response.data.users);
-	// 		setUserId(response.data.users[0].id);
-	// 		setPageLoading(false);
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 		setPageLoading(false);
-	// 	}
-	// };
-
-	// useEffect(() => {
-	// 	fetchUserDetails();
-	// }, []);
 
 	return (
 		<div>

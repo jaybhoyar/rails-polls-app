@@ -12,8 +12,7 @@ const SignupForm = ({
 }) => {
 	return (
 		<div
-			className="flex items-center justify-center min-h-screen px-4
-    py-12 sm:px-6 lg:px-8 bg-gray-50 "
+			className="flex pt-12 justify-center min-h-screen px-8"
 		>
 			<div className="w-full max-w-md">
 				<h2
@@ -25,9 +24,9 @@ const SignupForm = ({
 				<div className="text-center text-center text-sm font-medium">
 					Or
 					<Link
-						to="/"
+						to="/login"
 						className="ml-1 mt-2 text-center
-            text-bb-purple transition duration-150 ease-in-out
+            text-poll-blue transition duration-150 ease-in-out
             focus:outline-none focus:underline"
 					>
 						Login Now

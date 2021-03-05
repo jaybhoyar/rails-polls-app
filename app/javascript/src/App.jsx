@@ -25,19 +25,20 @@ const App = () => {
 	return (
 		<Router>
 			<NavBar isUserLoggedIn={isUserLoggedIn} />
-			<Switch>
-				<Route exact path="/" component={Dashboard} />
-				<Route exact path="/signup" component={Signup} />
-				<Route exact path="/login" component={Login} />
-				{/* <Route exact path="/create" component={CreatePoll} /> */}
-				<Route exact path="/polls/:id/show" component={ShowPoll} />
-				<PrivateRoute
-					path="/create"
-					redirectRoute="/login"
-					condition={isUserLoggedIn}
-					component={CreatePoll}
-				/>
-			</Switch>
+			<div className="bg-poll-bg h-screen">
+				<Switch>
+					<Route exact path="/" component={Dashboard} />
+					<Route exact path="/signup" component={Signup} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/polls/:id/show" component={ShowPoll} />
+					<PrivateRoute
+						path="/create"
+						redirectRoute="/login"
+						condition={isUserLoggedIn}
+						component={CreatePoll}
+					/>
+				</Switch>
+			</div>
 		</Router>
 	);
 };
