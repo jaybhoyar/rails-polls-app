@@ -34,14 +34,29 @@ const ShowPoll = () => {
 
 	useEffect(() => {
 		fetchPollDetails();
+		calculateTotalVotes();
 	}, []);
+
+	function calculateTotalVotes() {
+		let votes = pollOptions.reduce((acc, cv) => {
+			return acc + cv.vote_count;
+		}, 0);
+		return votes;
+	}
 
 	return (
 		<div className="w-full flex items-center justify-around pl-28 py-10">
 			<div className="w-1/2">
-				<h1 className="pb-3 mt-8 mb-6 text-3xl leading-5 font-bold text-left tracking-wide">
-					{pollQuestion}
-				</h1>
+				<div className="flex w-2/3 justify-between items-center">
+					<h1 className="pb-3 mt-8 mb-6 text-3xl leading-9 font-bold text-left tracking-wide flex-wrap">
+						{pollQuestion}
+					</h1>
+					{pollOptions && (
+						<span className="font-bold text-base text-gray-500 mr-3">
+							{calculateTotalVotes()} votes
+						</span>
+					)}
+				</div>
 				{errorMessage ? (
 					<Error
 						errorMessage={errorMessage}

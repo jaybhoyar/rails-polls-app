@@ -10,7 +10,6 @@ const ListPolls = () => {
 	const fetchPolls = async () => {
 		try {
 			const response = await pollsApi.list();
-			console.log(response.data.polls);
 			setPolls(response.data.polls);
 		} catch (error) {
 			console.log(error);
