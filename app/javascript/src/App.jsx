@@ -1,32 +1,45 @@
-// import React from "react";
-// import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-// const App = () => {
-// 	return (
-// 		<Router>
-// 			<Switch>
-// 				<Route exact path="/" render={() => <div>Home</div>} />
-// 				<Route exact path="/about" render={() => <div>About</div>} />
-// 			</Switch>
-// 		</Router>
-// 	);
-// };
+import React, { useEffect } from "react";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { either, isEmpty, isNil } from "ramda";
 
-// export default App;
+import PrivateRoute from "components/Common/PrivateRoute";
+import Dashboard from "components/Dashboard";
+import Login from "components/Authentication/Login";
+import Signup from "components/Authentication/Signup";
+import CreatePoll from "components/Poll/CreatePoll";
+import ShowPoll from "components/Poll/ShowPoll";
+import NavBar from "components/NavBar";
+import { getFromLocalStorage } from "helpers/storage";
 
-import React from "react";
+import { setAuthHeaders } from "apis/axios";
 
 const App = () => {
+	const authToken = getFromLocalStorage("authToken");
+	const isUserLoggedIn =
+		!either(isNil, isEmpty)(authToken) && authToken !== "null";
+
+	useEffect(() => {
+		setAuthHeaders();
+	}, []);
+
 	return (
-		<div>
-			<h1>This is App.jsx</h1>
-			<h1>This is App.jsx</h1>
-			<h1>This is App.jsx</h1>
-			<h1>This is App.jsx</h1>
-			<h1>This is App.jsx</h1>
-			<h1>This is App.jsx</h1>
-			<h1>This is App.jsx</h1>
-			<h1>This is App.jsx</h1>
-		</div>
+		<Router>
+			<NavBar isUserLoggedIn={isUserLoggedIn} />
+			<div className="bg-poll-bg h-screen">
+				<Switch>
+					<Route exact path="/" component={Dashboard} />
+					<Route exact path="/signup" component={Signup} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/polls/:id/show" component={ShowPoll} />
+					<PrivateRoute
+						path="/create"
+						redirectRoute="/login"
+						condition={isUserLoggedIn}
+						component={CreatePoll}
+					/>
+				</Switch>
+			</div>
+		</Router>
 	);
 };
 
